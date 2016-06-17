@@ -1,0 +1,95 @@
+﻿@{
+    Layout = "";
+}
+@model Nop.Plugin.Widgets.TypeProducts.Models.ConfigurationModel
+@using Nop.Web.Framework;
+@Html.Action("StoreScopeConfiguration", "Setting", new { area = "Admin" })
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <fieldset>
+        
+        <table class="adminContent">
+            <tr>
+                <td class="adminTitle">
+                
+                    @Html.NopLabelFor(model => model.NumberOfHomePageProductOnHomepage):
+                </td>
+                <td class="adminData">
+                    @Html.EditorFor(model => model.NumberOfHomePageProductOnHomepage)
+                    @Html.ValidationMessageFor(model => model.NumberOfHomePageProductOnHomepage)
+                </td>
+            </tr>
+            <tr>
+                <td class="adminTitle">
+                    @Html.NopLabelFor(model => model.NumberOfBestsellersOnHomepage):
+                </td>
+                <td class="adminData">
+                    @Html.EditorFor(model => model.NumberOfBestsellersOnHomepage)
+                    @Html.ValidationMessageFor(model => model.NumberOfBestsellersOnHomepage)
+                </td>
+            </tr>
+            <tr>
+                <td class="adminTitle">
+                    @Html.NopLabelFor(model => model.NumberOfNewProductOnHomepage):
+                </td>
+                <td class="adminData">
+                    @Html.EditorFor(model => model.NumberOfNewProductOnHomepage)
+                    @Html.ValidationMessageFor(model => model.NumberOfNewProductOnHomepage)
+                </td>
+            </tr>
+            <tr>
+                <td class="adminTitle">
+
+                    @Html.NopLabelFor(model => model.ShowBestSellerProduct):
+                </td>
+                <td class="adminData">
+                    @Html.EditorFor(model => model.ShowBestSellerProduct)
+                    @Html.ValidationMessageFor(model => model.ShowBestSellerProduct)
+                </td>
+            </tr>
+            <tr>
+                <td class="adminTitle">
+
+                    @Html.NopLabelFor(model => model.ShowNewProduct):
+                </td>
+                <td class="adminData">
+                    @Html.EditorFor(model => model.ShowNewProduct)
+                    @Html.ValidationMessageFor(model => model.ShowNewProduct)
+                </td>
+            </tr>
+            <tr>
+                <td class="adminTitle">
+
+                    @Html.NopLabelFor(model => model.ShowHomePageProduct):
+                </td>
+                <td class="adminData">
+                    @Html.EditorFor(model => model.ShowHomePageProduct)
+                    @Html.ValidationMessageFor(model => model.ShowHomePageProduct)
+                </td>
+            </tr>
+            <tr>
+                <td class="adminTitle">
+
+                    @Html.NopLabelFor(model => model.CacheTime):
+                </td>
+                <td class="adminData">
+                    @Html.EditorFor(model => model.CacheTime)
+                    @Html.ValidationMessageFor(model => model.CacheTime)
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <br />
+    
+    
+    
+    <br />
+    <table class="adminContent">
+        <tr>
+            <td colspan="2">
+                <input type="submit" name="save" class="k-button" value="@T("Admin.Common.Save")" />
+            </td>
+        </tr>
+    </table>
+}

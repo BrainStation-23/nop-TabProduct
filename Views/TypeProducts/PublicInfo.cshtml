@@ -1,0 +1,84 @@
+﻿@model HomePageProductInitModel
+@{
+    Layout = "";
+    Html.AddScriptParts("~/Plugins/Widgets.TypeProducts/Scripts/typeplugin.js");
+    Html.AddScriptParts("~/Plugins/Widgets.TypeProducts/Scripts/isotope.pkgd.min.js");
+    Html.AddScriptParts("~/Plugins/Widgets.TypeProducts/Scripts/public.homepagepaging.js");
+    Html.AddScriptParts("~/Plugins/Widgets.TypeProducts/Scripts/easyResponsiveTabs.js");
+    Html.AddCssFileParts("~/Plugins/Widgets.TypeProducts/Content/easy-responsive-tabs.css");
+    Html.AddCssFileParts("~/Plugins/Widgets.TypeProducts/Content/custom.css");
+}
+@using Nop.Plugin.Widgets.TypeProducts.Models;
+@using Nop.Web.Framework.UI
+
+<div id="parentHorizontalTab">
+    <script>
+        HomePagePaging.init();
+    </script>
+    <ul class="resp-tabs-list hor_1">
+        @if (Model.HomePageProduct.Count() > 0)
+        {
+            <li onclick="HomePagePaging.defineDiv(HomePagePaging.productTypeDiv.homePageProduct)">@T("Homepage.Products")</li>
+        }
+        @if (Model.BestSellerProduct.Count() > 0)
+        {
+            <li onclick="HomePagePaging.defineDiv(HomePagePaging.productTypeDiv.bestSeller)">@T("Bestsellers")</li>
+        }
+        @if (Model.NewProduct.Count() > 0)
+        {
+            <li onclick="HomePagePaging.defineDiv(HomePagePaging.productTypeDiv.newProduct)">@T("Products.NewProducts")</li>
+        }
+    </ul>
+    <div class="resp-tabs-container hor_1">
+        @if (Model.HomePageProduct.Count() > 0)
+        {
+            <div class="tabcontent">
+                <div class="home-page-product-paging-div">
+                    @Html.Partial("~/Plugins/Widgets.TypeProducts/Views/TypeProducts/Products.cshtml", Model.HomePageProduct)
+                </div>
+                @if (Model.HomePageProductPageCount > 1)
+                {
+                    <div class="footer-buttontitle home-page-product-footer">
+                        <div class="footer-title" onclick="HomePagePaging.addProuduct()">
+                            <a>@T("Homepage.LoadMoreProduct")</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        @if (Model.BestSellerProduct.Count() > 0)
+        {
+            <div class="tabcontent">
+                <div class="best-seller-product-paging-div">
+                    @Html.Partial("~/Plugins/Widgets.TypeProducts/Views/TypeProducts/Products.cshtml", Model.BestSellerProduct)
+                </div>
+                @if (Model.BestSellerProductPageCount > 1)
+                {
+                    <div class="footer-buttontitle  best-seller-product-footer">
+                        <div class="footer-title" onclick="HomePagePaging.addProuduct()">
+                            <a>@T("Homepage.LoadMoreProduct")</a>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        }
+
+        @if (Model.NewProduct.Count() > 0)
+        {
+            <div class="tabcontent">
+                <div class="new-product-paging-div">
+                    @Html.Partial("~/Plugins/Widgets.TypeProducts/Views/TypeProducts/Products.cshtml", Model.NewProduct)
+                </div>
+                @if (Model.NewProductProductPageCount > 1)
+                {
+                    <div class="footer-buttontitle  new-product-footer">
+                        <div class="footer-title" onclick="HomePagePaging.addProuduct()">
+                            <a>@T("Homepage.LoadMoreProduct")</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

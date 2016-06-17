@@ -1,0 +1,8 @@
+﻿Group: Widgets
+FriendlyName: Type Products
+SystemName: Widgets.TypeProducts
+Version: 1.00
+SupportedVersions: 3.70
+Author: Anik Saha
+DisplayOrder: 1
+FileName: Nop.Plugin.Widgets.TypeProducts.dll
