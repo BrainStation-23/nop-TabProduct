@@ -1,0 +1,46 @@
+.footer-buttontitle {
+    width: 100%;
+    position: relative;
+    padding-top: 25px;
+}
+
+.footer-title {
+    margin: auto;
+    display: table;
+    z-index: 999;
+}
+
+    .footer-title a {
+        font-size: 17px;
+        color: #444444;
+        padding: 10px 20px;
+        border-radius: 25px;
+        background: #fff;
+        z-index: 999999;
+        position: relative;
+        top: 11px;
+    }
+
+    .footer-title:after {
+        width: 50%;
+        height: 1px;
+        background: #fff;
+        content: ".";
+        position: absolute;
+        right: 0px;
+        top: 45px;
+        z-index: 9;
+        font-size: 0px;
+    }
+
+    .footer-title:before {
+        width: 50%;
+        height: 1px;
+        background: #fff;
+        content: ".";
+        position: absolute;
+        left: 0px;
+        top: 45px;
+        z-index: 9;
+        font-size: 0px;
+    }
